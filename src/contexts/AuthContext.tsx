@@ -65,8 +65,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const setCurrentCompany = (newCompany: Company) => {
+    console.log('Cambiando a tienda:', newCompany.name);
     setCompany(newCompany);
     localStorage.setItem('company', JSON.stringify(newCompany));
+    
+    // Limpiar el carrito al cambiar de tienda
+    if (newCompany.id !== company?.id) {
+      localStorage.removeItem(`cart_${company?.id}`);
+    }
   };
 
   return (

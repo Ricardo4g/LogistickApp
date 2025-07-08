@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { ShoppingCart, User, LogOut, Search } from 'lucide-react';
+import { ShoppingCart, User, LogOut, Search, Store } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
+import { StoreSelector } from './StoreSelector';
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -41,6 +42,11 @@ export function Header({ onCartClick, onAuthClick, searchTerm, onSearchChange }:
             >
               {company.name}
             </h1>
+          </div>
+
+          {/* Selector de tiendas */}
+          <div className="flex items-center space-x-4">
+            <StoreSelector />
           </div>
 
           {/* Buscador */}

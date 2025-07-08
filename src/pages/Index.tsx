@@ -24,6 +24,14 @@ const Index = () => {
     }
   }, [company, setCurrentCompany]);
 
+  // Limpiar filtros al cambiar de tienda
+  useEffect(() => {
+    if (company) {
+      setSelectedCategory(null);
+      setSearchTerm('');
+    }
+  }, [company?.id]);
+
   // Filtrar categorías y productos por empresa actual
   const categories = useMemo(() => {
     return mockCategories.filter(cat => cat.companyId === company?.id);
