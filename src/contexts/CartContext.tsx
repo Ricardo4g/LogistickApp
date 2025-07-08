@@ -1,0 +1,131 @@
+
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Cart, CartItem, Product } from '../types';
+import { useAuth } from './AuthContext';
+
+interface CartContextType {
+  cart: Cart | null;
+  addToCart: (product: Product, quantity?: number) => void;
+  removeFromCart: (productId: string) => void;
+  updateQuantity: (productId: string, quantity: number) => void;
+  clearCart: () => void;
+  getItemCount: () => number;
+  getTotal: () => number;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export function CartProvider({ children }: { children: React.ReactNode }) {
+  const [cart, setCart] = useState<Cart | null>(null);
+  const { company, user } = useAuth();
+
+  useEffect(() => {
+    if (company) {
+      const savedCart = localStorage.getItem(`cart_${company.id}`);
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      } else {
+        setCart({ items: [], companyId: company.id });
+      }
+    }
+  }, [company]);
+
+  useEffect(() => {
+    if (cart) {
+      localStorage.setItem(`cart_${cart.companyId}`, JSON.stringify(cart));
+    }
+  }, [cart]);
+
+  const addToCart = (product: Product, quantity: number = 1) => {
+    if (!cart) return;
+
+    const existingItemIndex = cart.items.findIndex(item => item.product.id === product.id);
+    
+    if (existingItemIndex >= 0) {
+      const updatedItems = [...cart.items];
+      updatedItems[existingItemIndex].quantity += quantity;
+      setCart({ ...cart, items: updatedItems });
+    } else {
+      setCart({
+        ...cart,
+        items: [...cart.items, { product, quantity }]
+      });
+    }
+  };
+
+  const removeFromCart = (productId: string) => {
+    if (!cart) return;
+    
+    setCart({
+      ...cart,
+      items: cart.items.filter(item => item.product.id !== productId)
+    });
+  };
+
+  const updateQuantity = (productId: string, quantity: number) => {
+    if (!cart) return;
+    
+    if (quantity <= 0) {
+      removeFromCart(productId);
+      return;
+    }
+
+    setCart({
+      ...cart,
+      items: cart.items.map(item => 
+        item.product.id === productId 
+          ? { ...item, quantity }
+          : item
+      )
+    });
+  };
+
+  const clearCart = () => {
+    if (!cart) return;
+    setCart({ ...cart, items: [] });
+  };
+
+  const getItemCount = () => {
+    return cart?.items.reduce((total, item) => total + item.quantity, 0) || 0;
+  };
+
+  const getTotal = () => {
+    if (!cart) return 0;
+    
+    return cart.items.reduce((total, item) => {
+      const price = getProductPrice(item.product);
+      return total + (price * item.quantity);
+    }, 0);
+  };
+
+  const getProductPrice = (product: Product): number => {
+    if (!user) {
+      return product.publicPrice || 0;
+    }
+    
+    const userPrice = product.prices.find(p => p.clientType === user.clientType);
+    return userPrice?.price || product.publicPrice || 0;
+  };
+
+  return (
+    <CartContext.Provider value={{
+      cart,
+      addToCart,
+      removeFromCart,
+      updateQuantity,
+      clearCart,
+      getItemCount,
+      getTotal
+    }}>
+      {children}
+    </CartContext.Provider>
+  );
+}
+
+export function useCart() {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
+}
