@@ -53,7 +53,6 @@ export function Header({ onCartClick, onAuthClick, searchTerm, onSearchChange }:
                 value={searchTerm}
                 onChange={(e) => onSearchChange(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-opacity-50 focus:outline-none"
-                style={{ focusRingColor: company.primaryColor }}
               />
             </div>
           </div>
