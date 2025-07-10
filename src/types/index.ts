@@ -29,6 +29,19 @@ export interface Product {
     clientType: string;
     price: number;
   }[];
+  nutritionalInfo?: {
+    servingSize?: string;
+    calories?: number;
+    protein?: string;
+    totalFat?: string;
+    carbohydrates?: string;
+    sugars?: string;
+    sodium?: string;
+    vitaminA?: string;
+    vitaminD?: string;
+  };
+  presentations?: string[];
+  flavors?: string[];
 }
 
 export interface User {

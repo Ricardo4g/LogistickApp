@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Plus, ShoppingCart } from 'lucide-react';
 import { Product } from '../../types';
 import { useAuth } from '../../contexts/AuthContext';
@@ -13,6 +14,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const navigate = useNavigate();
   const { user, company } = useAuth();
   const { addToCart } = useCart();
 
@@ -28,12 +30,20 @@ export function ProductCard({ product }: ProductCardProps) {
   const price = getProductPrice();
   const showPrice = user || company?.showPublic;
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
     addToCart(product, 1);
   };
 
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
-    <Card className="group hover:shadow-lg transition-shadow duration-200">
+    <Card 
+      className="group hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+      onClick={handleCardClick}
+    >
       <CardContent className="p-4">
         <div className="aspect-square mb-4 overflow-hidden rounded-lg">
           <img
@@ -67,14 +77,26 @@ export function ProductCard({ product }: ProductCardProps) {
       
       <CardFooter className="p-4 pt-0">
         {showPrice ? (
-          <Button
-            onClick={handleAddToCart}
-            className="w-full"
-            style={{ backgroundColor: company?.primaryColor }}
-          >
-            <ShoppingCart className="h-4 w-4 mr-2" />
-            Agregar al carrito
-          </Button>
+          <div className="w-full space-y-2">
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/product/${product.id}`);
+              }}
+              variant="outline"
+              className="w-full"
+            >
+              Ver detalles
+            </Button>
+            <Button
+              onClick={handleAddToCart}
+              className="w-full"
+              style={{ backgroundColor: company?.primaryColor }}
+            >
+              <ShoppingCart className="h-4 w-4 mr-2" />
+              Agregar al carrito
+            </Button>
+          </div>
         ) : (
           <div className="w-full text-center py-2 text-gray-500 text-sm">
             Inicia sesión para ver precios
