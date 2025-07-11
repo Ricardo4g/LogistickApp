@@ -16,6 +16,7 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showCart, setShowCart] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Configurar empresa por defecto (en una app real esto vendría de la URL o configuración)
   useEffect(() => {
@@ -61,9 +62,9 @@ const Index = () => {
 
   if (!company) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center p-4">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Cargando tienda...</h1>
+          <h1 className="text-xl sm:text-2xl font-bold mb-4">Cargando tienda...</h1>
         </div>
       </div>
     );
@@ -74,17 +75,20 @@ const Index = () => {
       <Header
         onCartClick={() => setShowCart(true)}
         onAuthClick={() => setShowAuth(true)}
+        onMenuClick={() => setSidebarOpen(true)}
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
       />
 
-      <div className="flex">
+      <div className="flex relative">
         {shouldShowContent ? (
           <>
             <CategorySidebar
               categories={categories}
               selectedCategory={selectedCategory}
               onCategorySelect={setSelectedCategory}
+              isOpen={sidebarOpen}
+              onClose={() => setSidebarOpen(false)}
             />
             <ProductGrid products={filteredProducts} />
           </>
