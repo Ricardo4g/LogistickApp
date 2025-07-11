@@ -1,11 +1,10 @@
-
 import { Company, Category, Product, User } from '../types';
 
 export const mockCompanies: Company[] = [
   {
     id: '1',
     name: 'Cremería Aguascalientes',
-    logo: '/lovable-uploads/43e239c2-f2ca-46d8-bf30-482755be3eca.png',
+    logo: '/lovable-uploads/be2706dc-c944-44d5-af03-6d0fea796d27.png',
     primaryColor: '#dc2626',
     secondaryColor: '#991b1b',
     showPublic: true,
@@ -89,7 +88,7 @@ export const mockProducts: Product[] = [
     id: '1',
     name: 'Leche Descremada Light',
     description: 'Disfruta de una leche descremada con el 50% menos de grasas y calorías, sin perder sabor. La Leche Descremada Light es una opción saludable para satisfacer tu antojo sin sentirte culpable.',
-    image: '/lovable-uploads/e42e0b70-7d04-4824-b196-2647b5045730.png',
+    image: '/lovable-uploads/3ab6e166-f87e-41b6-9a7f-cd4bc3438207.png',
     categoryId: '1',
     companyId: '1',
     publicPrice: 22.50,
@@ -115,7 +114,7 @@ export const mockProducts: Product[] = [
     id: '2',
     name: 'Yogurt 220ml',
     description: 'Saborea nuestro delicioso Yogurt 220ml hecho con ingredientes 100% naturales y de diferentes sabores. Nuestro yogurt es rico en nutrientes y disfruta de la frescura y sabor natural.',
-    image: 'https://images.unsplash.com/photo-1571212515416-fdf801a0b82e?w=300&h=300&fit=crop',
+    image: '/lovable-uploads/bb577254-7f09-482b-b055-fdc61de7d8c6.png',
     categoryId: '2',
     companyId: '1',
     publicPrice: 12.00,
@@ -130,7 +129,7 @@ export const mockProducts: Product[] = [
     id: '3',
     name: 'Requesón 220grs',
     description: 'Requesón fresco y cremoso, perfecto para acompañar tus comidas o como ingrediente en tus recetas favoritas.',
-    image: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?w=300&h=300&fit=crop',
+    image: '/lovable-uploads/a67f5730-ddcd-4f4d-9795-fe069ff11d87.png',
     categoryId: '3',
     companyId: '1',
     publicPrice: 39.00,
@@ -144,7 +143,7 @@ export const mockProducts: Product[] = [
     id: '4',
     name: 'Queso Asadero Botanita 225grs',
     description: 'Queso asadero ideal para derretir, perfecto para quesadillas, nachos y botanas.',
-    image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=300&h=300&fit=crop',
+    image: '/lovable-uploads/5a18934c-4829-428a-b059-e38ebf26aadd.png',
     categoryId: '3',
     companyId: '1',
     publicPrice: 52.00,
@@ -158,7 +157,7 @@ export const mockProducts: Product[] = [
     id: '5',
     name: 'Crema Pasteurizada 240ml',
     description: 'Crema pasteurizada fresca y cremosa, ideal para cocinar y acompañar tus platillos.',
-    image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=300&h=300&fit=crop',
+    image: '/lovable-uploads/448e9da2-c921-4322-b3a3-d323db7668aa.png',
     categoryId: '1',
     companyId: '1',
     publicPrice: 22.00,
@@ -270,33 +269,75 @@ export const mockProducts: Product[] = [
     ]
   },
 
-  // Oishi Onigiri products
+  // Oishi Onigiri products - Updated
   {
     id: '13',
-    name: 'Onigiri Salmón',
-    description: 'Delicioso onigiri relleno de salmón fresco, envuelto en alga nori premium.',
-    image: 'https://images.unsplash.com/photo-1617195737496-bc30194e3a19?w=300&h=300&fit=crop',
+    name: 'Oishi Onigiri Chuleta Ahumada Teriyaki',
+    description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
+    image: '/lovable-uploads/e8d3f4ff-365a-4574-b7de-fe2d0ef7b65d.png',
     categoryId: '4',
     companyId: '2',
-    publicPrice: 45.00,
+    publicPrice: 35.00,
     prices: [
-      { clientType: 'mayoreo', price: 38 },
-      { clientType: 'distribuidor', price: 42 },
-      { clientType: 'tiendita', price: 44 }
+      { clientType: 'mayoreo', price: 30 },
+      { clientType: 'distribuidor', price: 32 },
+      { clientType: 'tiendita', price: 34 }
     ]
   },
   {
     id: '14',
-    name: 'Onigiri Atún Mayo',
-    description: 'Tradicional onigiri japonés relleno de atún con mayonesa, perfecto para cualquier momento.',
-    image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop',
+    name: 'Oishi Onigiri Arrachera',
+    description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
+    image: '/lovable-uploads/e8d3f4ff-365a-4574-b7de-fe2d0ef7b65d.png',
     categoryId: '4',
     companyId: '2',
-    publicPrice: 42.00,
+    publicPrice: 35.00,
     prices: [
-      { clientType: 'mayoreo', price: 35 },
-      { clientType: 'distribuidor', price: 39 },
-      { clientType: 'tiendita', price: 41 }
+      { clientType: 'mayoreo', price: 30 },
+      { clientType: 'distribuidor', price: 32 },
+      { clientType: 'tiendita', price: 34 }
+    ]
+  },
+  {
+    id: '15',
+    name: 'Oishi Onigiri Atún',
+    description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
+    image: '/lovable-uploads/ac46bd87-3482-4774-ad07-921b3ac005ce.png',
+    categoryId: '4',
+    companyId: '2',
+    publicPrice: 35.00,
+    prices: [
+      { clientType: 'mayoreo', price: 30 },
+      { clientType: 'distribuidor', price: 32 },
+      { clientType: 'tiendita', price: 34 }
+    ]
+  },
+  {
+    id: '16',
+    name: 'Oishi Onigiri Atún Picante',
+    description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
+    image: '/lovable-uploads/92c4711b-bcbf-4b06-a0fb-6b61bcc052a4.png',
+    categoryId: '4',
+    companyId: '2',
+    publicPrice: 35.00,
+    prices: [
+      { clientType: 'mayoreo', price: 30 },
+      { clientType: 'distribuidor', price: 32 },
+      { clientType: 'tiendita', price: 34 }
+    ]
+  },
+  {
+    id: '17',
+    name: 'Oishi Onigiri Salmón Ahumado',
+    description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
+    image: '/lovable-uploads/92c4711b-bcbf-4b06-a0fb-6b61bcc052a4.png',
+    categoryId: '4',
+    companyId: '2',
+    publicPrice: 35.00,
+    prices: [
+      { clientType: 'mayoreo', price: 30 },
+      { clientType: 'distribuidor', price: 32 },
+      { clientType: 'tiendita', price: 34 }
     ]
   },
 
