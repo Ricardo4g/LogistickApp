@@ -1,3 +1,4 @@
+
 import { Company, Category, Product, User } from '../types';
 
 export const mockCompanies: Company[] = [
@@ -175,6 +176,8 @@ export const mockProducts: Product[] = [
       { name: '480ml', priceMultiplier: 1.9 }
     ]
   },
+  
+  // Hielo Crystal Don Frío products - CORREGIDAS LAS IMÁGENES
   {
     id: '6',
     name: 'Hielo Clásico - Bolsa 5 KG',
@@ -219,16 +222,16 @@ export const mockProducts: Product[] = [
   },
   {
     id: '9',
-    name: 'Hielo Cocktail - Hielo Molido',
-    description: 'LA MEJOR OPCIÓN PARA TUS BEBIDAS O RASPADOS. Hielo finamente molido perfecto para cócteles y raspados.',
-    image: '/lovable-uploads/48375f00-c6d9-4b34-b1fb-6697c09d2d4e.png',
+    name: 'Hielo en Ojuelas',
+    description: 'TU ALIADO PERFECTO. Hielo en ojuelas ideal para conservación y presentación de productos.',
+    image: '/lovable-uploads/e682f99b-2081-42af-82e4-8109d403251c.png',
     categoryId: '10',
     companyId: '4',
-    publicPrice: 30.00,
+    publicPrice: 45.00,
     prices: [
-      { clientType: 'mayoreo', price: 25 },
-      { clientType: 'distribuidor', price: 27 },
-      { clientType: 'tiendita', price: 29 }
+      { clientType: 'mayoreo', price: 38 },
+      { clientType: 'distribuidor', price: 42 },
+      { clientType: 'tiendita', price: 44 }
     ]
   },
   {
@@ -261,19 +264,20 @@ export const mockProducts: Product[] = [
   },
   {
     id: '12',
-    name: 'Hielo en Ojuelas',
-    description: 'TU ALIADO PERFECTO. Hielo en ojuelas ideal para conservación y presentación de productos.',
-    image: '/lovable-uploads/e682f99b-2081-42af-82e4-8109d403251c.png',
+    name: 'Hielo Cocktail - Hielo Molido',
+    description: 'LA MEJOR OPCIÓN PARA TUS BEBIDAS O RASPADOS. Hielo finamente molido perfecto para cócteles y raspados.',
+    image: '/lovable-uploads/48375f00-c6d9-4b34-b1fb-6697c09d2d4e.png',
     categoryId: '10',
     companyId: '4',
-    publicPrice: 45.00,
+    publicPrice: 30.00,
     prices: [
-      { clientType: 'mayoreo', price: 38 },
-      { clientType: 'distribuidor', price: 42 },
-      { clientType: 'tiendita', price: 44 }
+      { clientType: 'mayoreo', price: 25 },
+      { clientType: 'distribuidor', price: 27 },
+      { clientType: 'tiendita', price: 29 }
     ]
   },
-  // Oishi Onigiri products - Updated with new images
+
+  // Oishi Onigiri products
   {
     id: '13',
     name: 'Oishi Onigiri Chuleta Ahumada Teriyaki',
@@ -344,175 +348,136 @@ export const mockProducts: Product[] = [
       { clientType: 'tiendita', price: 34 }
     ]
   },
-  // Dulcería San Marcos products - Updated with new images
+
+  // Dulcería San Marcos products - ACTUALIZADOS
   {
     id: '18',
-    name: 'Dulce de Tamarindo Enchilado',
-    description: 'Pulpa de tamarindo enchilada con chile piquín, un clásico de la dulcería mexicana.',
+    name: 'Paquete 3 Vitroleros de dulce de leche de 90 piezas',
+    description: 'Paquete especial de 3 vitroleros con dulce de leche artesanal, perfecto para eventos y celebraciones.',
     image: '/lovable-uploads/d67045ac-6a5f-4c5d-83e7-944fc895c97d.png',
     categoryId: '6',
     companyId: '3',
-    publicPrice: 15.00,
+    publicPrice: 285.00,
     prices: [
-      { clientType: 'mayoreo', price: 12 },
-      { clientType: 'distribuidor', price: 13 },
-      { clientType: 'tiendita', price: 14 }
+      { clientType: 'mayoreo', price: 260 },
+      { clientType: 'distribuidor', price: 270 },
+      { clientType: 'tiendita', price: 280 }
     ]
   },
   {
     id: '19',
-    name: 'Macarrón San Marcos',
-    description: 'Dulce tradicional de macarrón con dulce de leche, hecho con la receta original de San Marcos.',
+    name: 'Barrita de leche con nuez 80grs',
+    description: 'Deliciosa barrita de leche con trozos de nuez, un dulce tradicional mexicano.',
     image: '/lovable-uploads/1be1c62b-69ec-4e63-bc35-d0621536889c.png',
     categoryId: '6',
     companyId: '3',
-    publicPrice: 25.00,
+    publicPrice: 13.00,
     prices: [
-      { clientType: 'mayoreo', price: 20 },
-      { clientType: 'distribuidor', price: 22 },
-      { clientType: 'tiendita', price: 24 }
+      { clientType: 'mayoreo', price: 10 },
+      { clientType: 'distribuidor', price: 11 },
+      { clientType: 'tiendita', price: 12 }
     ]
   },
   {
     id: '20',
-    name: 'Macarrón San Marcos - Frasco Grande',
-    description: 'Dulce tradicional de macarrón con dulce de leche en presentación familiar.',
+    name: 'Vitrolero macarrón 90 pzs',
+    description: 'Dulce de leche artesanal con 85 porciones de 10 grs cada una, presentado en vitrolero.',
     image: '/lovable-uploads/81b3339b-da51-4acc-b96a-00a764d6a614.png',
     categoryId: '6',
     companyId: '3',
-    publicPrice: 85.00,
+    publicPrice: 95.00,
     prices: [
-      { clientType: 'mayoreo', price: 75 },
-      { clientType: 'distribuidor', price: 80 },
-      { clientType: 'tiendita', price: 82 }
+      { clientType: 'mayoreo', price: 85 },
+      { clientType: 'distribuidor', price: 90 },
+      { clientType: 'tiendita', price: 93 }
     ]
   },
   {
-    id: '17',
-    name: 'Helado Magnum Clásico',
-    description: 'Helado premium cubierto de chocolate belga, una experiencia única de sabor.',
-    image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=300&fit=crop',
+    id: '21',
+    name: 'Cajeta 250 gramos',
+    description: 'Deliciosa cajeta natural casera, elaborada con ingredientes tradicionales.',
+    image: '/lovable-uploads/d67045ac-6a5f-4c5d-83e7-944fc895c97d.png',
+    categoryId: '6',
+    companyId: '3',
+    publicPrice: 25.00,
+    prices: [
+      { clientType: 'mayoreo', price: 20 },
+      { clientType: 'distribuidor', price: 22 },
+      { clientType: 'tiendita', price: 24 }
+    ]
+  },
+
+  // Helados Nestlé products - NUEVOS CON IMÁGENES
+  {
+    id: '22',
+    name: 'Helado Nestlé Crunch con trozos de chocolate 714 g',
+    description: 'Helado cremoso con deliciosos trozos de chocolate Crunch. Disfrútalo como postre, ideal para compartir.',
+    image: '/lovable-uploads/59144bf7-89ff-4275-9604-afdf6ed537bb.png',
     categoryId: '11',
     companyId: '5',
-    publicPrice: 65.00,
+    publicPrice: 75.00,
     prices: [
-      { clientType: 'mayoreo', price: 55 },
-      { clientType: 'distribuidor', price: 60 },
-      { clientType: 'tiendita', price: 62 }
+      { clientType: 'mayoreo', price: 65 },
+      { clientType: 'distribuidor', price: 70 },
+      { clientType: 'tiendita', price: 72 }
     ]
   },
   {
-    id: '18',
-    name: 'Paleta Solero',
-    description: 'Refrescante paleta de limón con trozos de fruta real, perfecta para el calor.',
-    image: 'https://images.unsplash.com/photo-1567558146042-eb6c7eb81071?w=300&h=300&fit=crop',
+    id: '23',
+    name: 'Helado Nestlé Galáctea sabor Leche Condensada 527 g',
+    description: 'Ideal para consentirte en todo momento. Disfruta de un postre delicioso y cremoso. Explora y encuentra la gran variedad de Helados Nestlé.',
+    image: '/lovable-uploads/edb8d606-e701-42fe-b33f-283c94c321a3.png',
+    categoryId: '11',
+    companyId: '5',
+    publicPrice: 80.00,
+    prices: [
+      { clientType: 'mayoreo', price: 70 },
+      { clientType: 'distribuidor', price: 75 },
+      { clientType: 'tiendita', price: 78 }
+    ]
+  },
+  {
+    id: '24',
+    name: 'Helado Nestlé napolitano 3L',
+    description: 'Tamaño ideal para compartir. La perfecta combinación de sabor. Delicioso sabor chocolate, fresa y vainilla.',
+    image: '/lovable-uploads/c7eb4f74-716d-43cb-bd96-1d04117ccfa4.png',
+    categoryId: '11',
+    companyId: '5',
+    publicPrice: 180.00,
+    prices: [
+      { clientType: 'mayoreo', price: 160 },
+      { clientType: 'distribuidor', price: 170 },
+      { clientType: 'tiendita', price: 175 }
+    ]
+  },
+  {
+    id: '25',
+    name: 'Helado Nestlé pasión de mokaccino con chispas de chocolate 738 g',
+    description: 'Helado cremoso con delicioso sabor mokaccino y chispas de chocolate. Disfrútalo como postre, ideal para compartir.',
+    image: '/lovable-uploads/c579bd28-9845-4b4d-9492-c8b402edcc3a.png',
+    categoryId: '11',
+    companyId: '5',
+    publicPrice: 75.00,
+    prices: [
+      { clientType: 'mayoreo', price: 65 },
+      { clientType: 'distribuidor', price: 70 },
+      { clientType: 'tiendita', price: 72 }
+    ]
+  },
+  {
+    id: '26',
+    name: 'Paleta helada Nestlé sabor fresa de 83 g',
+    description: 'Disfrútalo como postre. Con trozos de fruta. Almacenar a una temperatura de -18° C.',
+    image: '/lovable-uploads/b7afd1d3-8981-42d4-b871-e58a2d48207c.png',
     categoryId: '12',
     companyId: '5',
-    publicPrice: 25.00,
+    publicPrice: 32.00,
     prices: [
-      { clientType: 'mayoreo', price: 20 },
-      { clientType: 'distribuidor', price: 22 },
-      { clientType: 'tiendita', price: 24 }
+      { clientType: 'mayoreo', price: 28 },
+      { clientType: 'distribuidor', price: 30 },
+      { clientType: 'tiendita', price: 31 }
     ]
-  },
-  {
-    id: '6',
-    name: 'Hielo Clásico - Bolsa 5 KG',
-    description: 'EL QUE NUNCA FALLA EN TUS REUNIONES. Hielo de alta calidad para todo tipo de bebidas y eventos.',
-    image: '/lovable-uploads/07f5c242-fd94-4623-afb0-c1ec4c4cf61d.png',
-    categoryId: '8',
-    companyId: '4',
-    publicPrice: 25.00,
-    prices: [
-      { clientType: 'mayoreo', price: 20 },
-      { clientType: 'distribuidor', price: 22 },
-      { clientType: 'tiendita', price: 24 }
-    ]
-  },
-  {
-    id: '7',
-    name: 'Hielo Fiesta - Bolsa 15 KG',
-    description: 'IDEAL PARA EVENTOS MÁS GRANDES. Bolsa de hielo de 15kg perfecta para fiestas y eventos grandes.',
-    image: '/lovable-uploads/775d7a9a-e1ad-4905-a8c8-ae79383bbe96.png',
-    categoryId: '8',
-    companyId: '4',
-    publicPrice: 65.00,
-    prices: [
-      { clientType: 'mayoreo', price: 55 },
-      { clientType: 'distribuidor', price: 60 },
-      { clientType: 'tiendita', price: 62 }
-    ]
-  },
-  {
-    id: '8',
-    name: 'Hielo Gourmet - Bolsa 5 KG',
-    description: 'DALE UN TOQUE A TUS BEBIDAS. Hielo premium para bebidas especiales y cócteles.',
-    image: '/lovable-uploads/926ebffe-fea9-41c4-a418-be12a91fa93a.png',
-    categoryId: '8',
-    companyId: '4',
-    publicPrice: 35.00,
-    prices: [
-      { clientType: 'mayoreo', price: 30 },
-      { clientType: 'distribuidor', price: 32 },
-      { clientType: 'tiendita', price: 34 }
-    ]
-  },
-  {
-    id: '9',
-    name: 'Hielo Cocktail - Hielo Molido',
-    description: 'LA MEJOR OPCIÓN PARA TUS BEBIDAS O RASPADOS. Hielo finamente molido perfecto para cócteles y raspados.',
-    image: '/lovable-uploads/48375f00-c6d9-4b34-b1fb-6697c09d2d4e.png',
-    categoryId: '10',
-    companyId: '4',
-    publicPrice: 30.00,
-    prices: [
-      { clientType: 'mayoreo', price: 25 },
-      { clientType: 'distribuidor', price: 27 },
-      { clientType: 'tiendita', price: 29 }
-    ]
-  },
-  {
-    id: '10',
-    name: 'Barra de Hielo 20 KG',
-    description: 'EL PROTAGONISTA DE TU EVENTO. Barra sólida de hielo de 20kg para eventos especiales.',
-    image: '/lovable-uploads/bbc0e20a-d5d5-42db-8313-ff765c225454.png',
-    categoryId: '9',
-    companyId: '4',
-    publicPrice: 85.00,
-    prices: [
-      { clientType: 'mayoreo', price: 75 },
-      { clientType: 'distribuidor', price: 80 },
-      { clientType: 'tiendita', price: 82 }
-    ]
-  },
-  {
-    id: '11',
-    name: 'Barra de Hielo 75 KG',
-    description: 'RESISTENCIA Y FRESCURA PARA GRANDES OCASIONES. Barra industrial de hielo para eventos masivos.',
-    image: '/lovable-uploads/7b15c5d7-0efe-4c3f-96b3-603f1df71c90.png',
-    categoryId: '9',
-    companyId: '4',
-    publicPrice: 280.00,
-    prices: [
-      { clientType: 'mayoreo', price: 250 },
-      { clientType: 'distribuidor', price: 265 },
-      { clientType: 'tiendita', price: 275 }
-    ]
-  },
-  {
-    id: '12',
-    name: 'Hielo en Ojuelas',
-    description: 'TU ALIADO PERFECTO. Hielo en ojuelas ideal para conservación y presentación de productos.',
-    image: '/lovable-uploads/e682f99b-2081-42af-82e4-8109d403251c.png',
-    categoryId: '10',
-    companyId: '4',
-    publicPrice: 45.00,
-    prices: [
-      { clientType: 'mayoreo', price: 38 },
-      { clientType: 'distribuidor', price: 42 },
-      { clientType: 'tiendita', price: 44 }
-    ]
-  },
+  }
 ];
 
 export const mockUsers: User[] = [

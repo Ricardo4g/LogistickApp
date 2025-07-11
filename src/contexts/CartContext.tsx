@@ -5,9 +5,9 @@ import { useAuth } from './AuthContext';
 
 interface CartContextType {
   cart: Cart | null;
-  addToCart: (product: Product, quantity?: number, selectedPresentation?: string) => void;
-  removeFromCart: (productId: string, selectedPresentation?: string) => void;
-  updateQuantity: (productId: string, quantity: number, selectedPresentation?: string) => void;
+  addToCart: (product: Product, quantity?: number, selectedPresentation?: string, selectedFlavor?: string) => void;
+  removeFromCart: (productId: string, selectedPresentation?: string, selectedFlavor?: string) => void;
+  updateQuantity: (productId: string, quantity: number, selectedPresentation?: string, selectedFlavor?: string) => void;
   clearCart: () => void;
   getItemCount: () => number;
   getTotal: () => number;
@@ -36,12 +36,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [cart]);
 
-  const addToCart = (product: Product, quantity: number = 1, selectedPresentation?: string) => {
+  const addToCart = (product: Product, quantity: number = 1, selectedPresentation?: string, selectedFlavor?: string) => {
     if (!cart) return;
 
     const existingItemIndex = cart.items.findIndex(item => 
       item.product.id === product.id && 
-      item.selectedPresentation === selectedPresentation
+      item.selectedPresentation === selectedPresentation &&
+      item.selectedFlavor === selectedFlavor
     );
     
     if (existingItemIndex >= 0) {
@@ -51,34 +52,38 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } else {
       setCart({
         ...cart,
-        items: [...cart.items, { product, quantity, selectedPresentation }]
+        items: [...cart.items, { product, quantity, selectedPresentation, selectedFlavor }]
       });
     }
   };
 
-  const removeFromCart = (productId: string, selectedPresentation?: string) => {
+  const removeFromCart = (productId: string, selectedPresentation?: string, selectedFlavor?: string) => {
     if (!cart) return;
     
     setCart({
       ...cart,
       items: cart.items.filter(item => 
-        !(item.product.id === productId && item.selectedPresentation === selectedPresentation)
+        !(item.product.id === productId && 
+          item.selectedPresentation === selectedPresentation &&
+          item.selectedFlavor === selectedFlavor)
       )
     });
   };
 
-  const updateQuantity = (productId: string, quantity: number, selectedPresentation?: string) => {
+  const updateQuantity = (productId: string, quantity: number, selectedPresentation?: string, selectedFlavor?: string) => {
     if (!cart) return;
     
     if (quantity <= 0) {
-      removeFromCart(productId, selectedPresentation);
+      removeFromCart(productId, selectedPresentation, selectedFlavor);
       return;
     }
 
     setCart({
       ...cart,
       items: cart.items.map(item => 
-        item.product.id === productId && item.selectedPresentation === selectedPresentation
+        item.product.id === productId && 
+        item.selectedPresentation === selectedPresentation &&
+        item.selectedFlavor === selectedFlavor
           ? { ...item, quantity }
           : item
       )

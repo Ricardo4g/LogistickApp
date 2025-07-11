@@ -1,4 +1,3 @@
-
 export interface Company {
   id: string;
   name: string;
@@ -59,6 +58,7 @@ export interface CartItem {
   product: Product;
   quantity: number;
   selectedPresentation?: string;
+  selectedFlavor?: string;
 }
 
 export interface Cart {

@@ -18,17 +18,21 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [selectedPresentation, setSelectedPresentation] = useState<string>('');
+  const [selectedFlavor, setSelectedFlavor] = useState<string>('');
 
   const product = useMemo(() => {
     return mockProducts.find(p => p.id === productId);
   }, [productId]);
 
-  // Set default presentation when product loads
+  // Set default presentation and flavor when product loads
   React.useEffect(() => {
     if (product?.presentations && product.presentations.length > 0 && !selectedPresentation) {
       setSelectedPresentation(product.presentations[0].name);
     }
-  }, [product, selectedPresentation]);
+    if (product?.flavors && product.flavors.length > 0 && !selectedFlavor) {
+      setSelectedFlavor(product.flavors[0]);
+    }
+  }, [product, selectedPresentation, selectedFlavor]);
 
   if (!product || !company) {
     return (
@@ -73,7 +77,7 @@ const ProductDetail = () => {
   };
 
   const handleAddToCart = () => {
-    addToCart(product, quantity, selectedPresentation || undefined);
+    addToCart(product, quantity, selectedPresentation || undefined, selectedFlavor || undefined);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -195,17 +199,22 @@ const ProductDetail = () => {
               </div>
             )}
 
-            {/* Sabores */}
-            {product.flavors && (
+            {/* Selector de sabores */}
+            {product.flavors && product.flavors.length > 0 && (
               <div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2">Sabores disponibles</h3>
-                <div className="flex flex-wrap gap-2">
-                  {product.flavors.map((flavor, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
-                      {flavor}
-                    </Badge>
-                  ))}
-                </div>
+                <h3 className="text-base sm:text-lg font-semibold mb-2">Sabor</h3>
+                <Select value={selectedFlavor} onValueChange={setSelectedFlavor}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Selecciona un sabor" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {product.flavors.map((flavor) => (
+                      <SelectItem key={flavor} value={flavor}>
+                        {flavor}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             )}
 
