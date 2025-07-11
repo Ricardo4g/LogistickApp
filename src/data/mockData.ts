@@ -1,4 +1,3 @@
-
 import { Company, Category, Product, User } from '../types';
 
 export const mockCompanies: Company[] = [
@@ -224,7 +223,7 @@ export const mockProducts: Product[] = [
     id: '9',
     name: 'Hielo en Ojuelas',
     description: 'TU ALIADO PERFECTO. Hielo en ojuelas ideal para conservación y presentación de productos.',
-    image: '/lovable-uploads/e682f99b-2081-42af-82e4-8109d403251c.png',
+    image: '/lovable-uploads/48375f00-c6d9-4b34-b1fb-6697c09d2d4e.png',
     categoryId: '10',
     companyId: '4',
     publicPrice: 45.00,
@@ -266,7 +265,7 @@ export const mockProducts: Product[] = [
     id: '12',
     name: 'Hielo Cocktail - Hielo Molido',
     description: 'LA MEJOR OPCIÓN PARA TUS BEBIDAS O RASPADOS. Hielo finamente molido perfecto para cócteles y raspados.',
-    image: '/lovable-uploads/48375f00-c6d9-4b34-b1fb-6697c09d2d4e.png',
+    image: '/lovable-uploads/e682f99b-2081-42af-82e4-8109d403251c.png',
     categoryId: '10',
     companyId: '4',
     publicPrice: 30.00,
@@ -354,7 +353,7 @@ export const mockProducts: Product[] = [
     id: '18',
     name: 'Paquete 3 Vitroleros de dulce de leche de 90 piezas',
     description: 'Paquete especial de 3 vitroleros con dulce de leche artesanal, perfecto para eventos y celebraciones.',
-    image: '/lovable-uploads/d67045ac-6a5f-4c5d-83e7-944fc895c97d.png',
+    image: '/lovable-uploads/3ec57eb7-801d-4d09-8e02-3015d6d251c7.png',
     categoryId: '6',
     companyId: '3',
     publicPrice: 285.00,
@@ -382,7 +381,7 @@ export const mockProducts: Product[] = [
     id: '20',
     name: 'Vitrolero macarrón 90 pzs',
     description: 'Dulce de leche artesanal con 85 porciones de 10 grs cada una, presentado en vitrolero.',
-    image: '/lovable-uploads/81b3339b-da51-4acc-b96a-00a764d6a614.png',
+    image: '/lovable-uploads/4b08d2d1-3da4-4b52-8504-cecb234817ab.png',
     categoryId: '6',
     companyId: '3',
     publicPrice: 95.00,
