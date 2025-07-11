@@ -40,7 +40,10 @@ export interface Product {
     vitaminA?: string;
     vitaminD?: string;
   };
-  presentations?: string[];
+  presentations?: {
+    name: string;
+    priceMultiplier: number;
+  }[];
   flavors?: string[];
 }
 
@@ -55,6 +58,7 @@ export interface User {
 export interface CartItem {
   product: Product;
   quantity: number;
+  selectedPresentation?: string;
 }
 
 export interface Cart {

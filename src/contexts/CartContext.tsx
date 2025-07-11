@@ -5,9 +5,9 @@ import { useAuth } from './AuthContext';
 
 interface CartContextType {
   cart: Cart | null;
-  addToCart: (product: Product, quantity?: number) => void;
-  removeFromCart: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  addToCart: (product: Product, quantity?: number, selectedPresentation?: string) => void;
+  removeFromCart: (productId: string, selectedPresentation?: string) => void;
+  updateQuantity: (productId: string, quantity: number, selectedPresentation?: string) => void;
   clearCart: () => void;
   getItemCount: () => number;
   getTotal: () => number;
@@ -36,10 +36,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [cart]);
 
-  const addToCart = (product: Product, quantity: number = 1) => {
+  const addToCart = (product: Product, quantity: number = 1, selectedPresentation?: string) => {
     if (!cart) return;
 
-    const existingItemIndex = cart.items.findIndex(item => item.product.id === product.id);
+    const existingItemIndex = cart.items.findIndex(item => 
+      item.product.id === product.id && 
+      item.selectedPresentation === selectedPresentation
+    );
     
     if (existingItemIndex >= 0) {
       const updatedItems = [...cart.items];
@@ -48,32 +51,34 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } else {
       setCart({
         ...cart,
-        items: [...cart.items, { product, quantity }]
+        items: [...cart.items, { product, quantity, selectedPresentation }]
       });
     }
   };
 
-  const removeFromCart = (productId: string) => {
+  const removeFromCart = (productId: string, selectedPresentation?: string) => {
     if (!cart) return;
     
     setCart({
       ...cart,
-      items: cart.items.filter(item => item.product.id !== productId)
+      items: cart.items.filter(item => 
+        !(item.product.id === productId && item.selectedPresentation === selectedPresentation)
+      )
     });
   };
 
-  const updateQuantity = (productId: string, quantity: number) => {
+  const updateQuantity = (productId: string, quantity: number, selectedPresentation?: string) => {
     if (!cart) return;
     
     if (quantity <= 0) {
-      removeFromCart(productId);
+      removeFromCart(productId, selectedPresentation);
       return;
     }
 
     setCart({
       ...cart,
       items: cart.items.map(item => 
-        item.product.id === productId 
+        item.product.id === productId && item.selectedPresentation === selectedPresentation
           ? { ...item, quantity }
           : item
       )
@@ -93,18 +98,30 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!cart) return 0;
     
     return cart.items.reduce((total, item) => {
-      const price = getProductPrice(item.product);
+      const price = getProductPrice(item.product, item.selectedPresentation);
       return total + (price * item.quantity);
     }, 0);
   };
 
-  const getProductPrice = (product: Product): number => {
-    if (!user) {
-      return product.publicPrice || 0;
-    }
+  const getProductPrice = (product: Product, selectedPresentation?: string): number => {
+    let basePrice = 0;
     
-    const userPrice = product.prices.find(p => p.clientType === user.clientType);
-    return userPrice?.price || product.publicPrice || 0;
+    if (!user) {
+      basePrice = product.publicPrice || 0;
+    } else {
+      const userPrice = product.prices.find(p => p.clientType === user.clientType);
+      basePrice = userPrice?.price || product.publicPrice || 0;
+    }
+
+    // Apply presentation multiplier if applicable
+    if (selectedPresentation && product.presentations) {
+      const presentationData = product.presentations.find(p => p.name === selectedPresentation);
+      if (presentationData) {
+        basePrice = basePrice * presentationData.priceMultiplier;
+      }
+    }
+
+    return basePrice;
   };
 
   return (

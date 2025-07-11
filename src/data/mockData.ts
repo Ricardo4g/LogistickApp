@@ -15,9 +15,9 @@ export const mockCompanies: Company[] = [
   {
     id: '2',
     name: 'Oishi Onigiri',
-    logo: 'https://images.unsplash.com/photo-1617195737496-bc30194e3a19?w=100&h=100&fit=crop&crop=face',
-    primaryColor: '#059669',
-    secondaryColor: '#047857',
+    logo: '/lovable-uploads/78839ca0-8a2d-4f8e-9774-988999d56e10.png',
+    primaryColor: '#ea580c',
+    secondaryColor: '#c2410c',
     showPublic: true,
     paymentMethods: ['transfer', 'cash_on_delivery'],
     deliveryMethods: ['local', 'shipping'],
@@ -26,9 +26,9 @@ export const mockCompanies: Company[] = [
   {
     id: '3',
     name: 'Dulcería San Marcos',
-    logo: 'https://images.unsplash.com/photo-1514517220017-8ce97d9e6b85?w=100&h=100&fit=crop&crop=face',
-    primaryColor: '#7c3aed',
-    secondaryColor: '#5b21b6',
+    logo: '/lovable-uploads/ac939e7b-7e91-450e-981b-52bea75da07e.png',
+    primaryColor: '#ca8a04',
+    secondaryColor: '#a16207',
     showPublic: true,
     paymentMethods: ['transfer', 'cash_on_delivery'],
     deliveryMethods: ['local', 'shipping'],
@@ -48,7 +48,7 @@ export const mockCompanies: Company[] = [
   {
     id: '5',
     name: 'Helados Nestlé',
-    logo: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=100&h=100&fit=crop&crop=face',
+    logo: '/lovable-uploads/56d98857-f691-4c4d-9643-698d086f530e.png',
     primaryColor: '#dc2626',
     secondaryColor: '#991b1b',
     showPublic: true,
@@ -108,7 +108,11 @@ export const mockProducts: Product[] = [
       vitaminA: '60ug',
       vitaminD: '0.5pg'
     },
-    presentations: ['1 litro', 'Caja 12 litros', 'Caja 6 litros']
+    presentations: [
+      { name: '1 litro', priceMultiplier: 1 },
+      { name: 'Caja 12 litros', priceMultiplier: 11.5 },
+      { name: 'Caja 6 litros', priceMultiplier: 5.8 }
+    ]
   },
   {
     id: '2',
@@ -166,10 +170,11 @@ export const mockProducts: Product[] = [
       { clientType: 'distribuidor', price: 20 },
       { clientType: 'tiendita', price: 21 }
     ],
-    presentations: ['240ml', '480ml']
+    presentations: [
+      { name: '240ml', priceMultiplier: 1 },
+      { name: '480ml', priceMultiplier: 1.9 }
+    ]
   },
-
-  // Hielo Crystal Don Frío products
   {
     id: '6',
     name: 'Hielo Clásico - Bolsa 5 KG',
@@ -268,13 +273,12 @@ export const mockProducts: Product[] = [
       { clientType: 'tiendita', price: 44 }
     ]
   },
-
-  // Oishi Onigiri products - Updated
+  // Oishi Onigiri products - Updated with new images
   {
     id: '13',
     name: 'Oishi Onigiri Chuleta Ahumada Teriyaki',
     description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
-    image: '/lovable-uploads/e8d3f4ff-365a-4574-b7de-fe2d0ef7b65d.png',
+    image: '/lovable-uploads/b50f28aa-2cda-4b41-bfa2-2223bce18619.png',
     categoryId: '4',
     companyId: '2',
     publicPrice: 35.00,
@@ -330,7 +334,7 @@ export const mockProducts: Product[] = [
     id: '17',
     name: 'Oishi Onigiri Salmón Ahumado',
     description: 'Snack tipo sushi en forma de triángulo, listo para comer. 125 gramos.',
-    image: '/lovable-uploads/92c4711b-bcbf-4b06-a0fb-6b61bcc052a4.png',
+    image: '/lovable-uploads/eba86584-31e7-4848-96c1-befac3d76586.png',
     categoryId: '4',
     companyId: '2',
     publicPrice: 35.00,
@@ -340,13 +344,12 @@ export const mockProducts: Product[] = [
       { clientType: 'tiendita', price: 34 }
     ]
   },
-
-  // Dulcería San Marcos products
+  // Dulcería San Marcos products - Updated with new images
   {
-    id: '15',
+    id: '18',
     name: 'Dulce de Tamarindo Enchilado',
     description: 'Pulpa de tamarindo enchilada con chile piquín, un clásico de la dulcería mexicana.',
-    image: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=300&h=300&fit=crop',
+    image: '/lovable-uploads/d67045ac-6a5f-4c5d-83e7-944fc895c97d.png',
     categoryId: '6',
     companyId: '3',
     publicPrice: 15.00,
@@ -357,21 +360,33 @@ export const mockProducts: Product[] = [
     ]
   },
   {
-    id: '16',
-    name: 'Chocolate de Mesa Abuelita',
-    description: 'Tradicional chocolate de mesa mexicano, perfecto para preparar chocolate caliente.',
-    image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=300&h=300&fit=crop',
-    categoryId: '7',
+    id: '19',
+    name: 'Macarrón San Marcos',
+    description: 'Dulce tradicional de macarrón con dulce de leche, hecho con la receta original de San Marcos.',
+    image: '/lovable-uploads/1be1c62b-69ec-4e63-bc35-d0621536889c.png',
+    categoryId: '6',
     companyId: '3',
-    publicPrice: 28.00,
+    publicPrice: 25.00,
     prices: [
-      { clientType: 'mayoreo', price: 22 },
-      { clientType: 'distribuidor', price: 25 },
-      { clientType: 'tiendita', price: 27 }
+      { clientType: 'mayoreo', price: 20 },
+      { clientType: 'distribuidor', price: 22 },
+      { clientType: 'tiendita', price: 24 }
     ]
   },
-
-  // Helados Nestlé products
+  {
+    id: '20',
+    name: 'Macarrón San Marcos - Frasco Grande',
+    description: 'Dulce tradicional de macarrón con dulce de leche en presentación familiar.',
+    image: '/lovable-uploads/81b3339b-da51-4acc-b96a-00a764d6a614.png',
+    categoryId: '6',
+    companyId: '3',
+    publicPrice: 85.00,
+    prices: [
+      { clientType: 'mayoreo', price: 75 },
+      { clientType: 'distribuidor', price: 80 },
+      { clientType: 'tiendita', price: 82 }
+    ]
+  },
   {
     id: '17',
     name: 'Helado Magnum Clásico',
@@ -399,7 +414,105 @@ export const mockProducts: Product[] = [
       { clientType: 'distribuidor', price: 22 },
       { clientType: 'tiendita', price: 24 }
     ]
-  }
+  },
+  {
+    id: '6',
+    name: 'Hielo Clásico - Bolsa 5 KG',
+    description: 'EL QUE NUNCA FALLA EN TUS REUNIONES. Hielo de alta calidad para todo tipo de bebidas y eventos.',
+    image: '/lovable-uploads/07f5c242-fd94-4623-afb0-c1ec4c4cf61d.png',
+    categoryId: '8',
+    companyId: '4',
+    publicPrice: 25.00,
+    prices: [
+      { clientType: 'mayoreo', price: 20 },
+      { clientType: 'distribuidor', price: 22 },
+      { clientType: 'tiendita', price: 24 }
+    ]
+  },
+  {
+    id: '7',
+    name: 'Hielo Fiesta - Bolsa 15 KG',
+    description: 'IDEAL PARA EVENTOS MÁS GRANDES. Bolsa de hielo de 15kg perfecta para fiestas y eventos grandes.',
+    image: '/lovable-uploads/775d7a9a-e1ad-4905-a8c8-ae79383bbe96.png',
+    categoryId: '8',
+    companyId: '4',
+    publicPrice: 65.00,
+    prices: [
+      { clientType: 'mayoreo', price: 55 },
+      { clientType: 'distribuidor', price: 60 },
+      { clientType: 'tiendita', price: 62 }
+    ]
+  },
+  {
+    id: '8',
+    name: 'Hielo Gourmet - Bolsa 5 KG',
+    description: 'DALE UN TOQUE A TUS BEBIDAS. Hielo premium para bebidas especiales y cócteles.',
+    image: '/lovable-uploads/926ebffe-fea9-41c4-a418-be12a91fa93a.png',
+    categoryId: '8',
+    companyId: '4',
+    publicPrice: 35.00,
+    prices: [
+      { clientType: 'mayoreo', price: 30 },
+      { clientType: 'distribuidor', price: 32 },
+      { clientType: 'tiendita', price: 34 }
+    ]
+  },
+  {
+    id: '9',
+    name: 'Hielo Cocktail - Hielo Molido',
+    description: 'LA MEJOR OPCIÓN PARA TUS BEBIDAS O RASPADOS. Hielo finamente molido perfecto para cócteles y raspados.',
+    image: '/lovable-uploads/48375f00-c6d9-4b34-b1fb-6697c09d2d4e.png',
+    categoryId: '10',
+    companyId: '4',
+    publicPrice: 30.00,
+    prices: [
+      { clientType: 'mayoreo', price: 25 },
+      { clientType: 'distribuidor', price: 27 },
+      { clientType: 'tiendita', price: 29 }
+    ]
+  },
+  {
+    id: '10',
+    name: 'Barra de Hielo 20 KG',
+    description: 'EL PROTAGONISTA DE TU EVENTO. Barra sólida de hielo de 20kg para eventos especiales.',
+    image: '/lovable-uploads/bbc0e20a-d5d5-42db-8313-ff765c225454.png',
+    categoryId: '9',
+    companyId: '4',
+    publicPrice: 85.00,
+    prices: [
+      { clientType: 'mayoreo', price: 75 },
+      { clientType: 'distribuidor', price: 80 },
+      { clientType: 'tiendita', price: 82 }
+    ]
+  },
+  {
+    id: '11',
+    name: 'Barra de Hielo 75 KG',
+    description: 'RESISTENCIA Y FRESCURA PARA GRANDES OCASIONES. Barra industrial de hielo para eventos masivos.',
+    image: '/lovable-uploads/7b15c5d7-0efe-4c3f-96b3-603f1df71c90.png',
+    categoryId: '9',
+    companyId: '4',
+    publicPrice: 280.00,
+    prices: [
+      { clientType: 'mayoreo', price: 250 },
+      { clientType: 'distribuidor', price: 265 },
+      { clientType: 'tiendita', price: 275 }
+    ]
+  },
+  {
+    id: '12',
+    name: 'Hielo en Ojuelas',
+    description: 'TU ALIADO PERFECTO. Hielo en ojuelas ideal para conservación y presentación de productos.',
+    image: '/lovable-uploads/e682f99b-2081-42af-82e4-8109d403251c.png',
+    categoryId: '10',
+    companyId: '4',
+    publicPrice: 45.00,
+    prices: [
+      { clientType: 'mayoreo', price: 38 },
+      { clientType: 'distribuidor', price: 42 },
+      { clientType: 'tiendita', price: 44 }
+    ]
+  },
 ];
 
 export const mockUsers: User[] = [
